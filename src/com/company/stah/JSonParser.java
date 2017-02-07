@@ -5,9 +5,6 @@ import jdk.nashorn.internal.ir.debug.JSONWriter;
 
 import java.util.ArrayList;
 
-/**
- * Created by takeshi on 17/02/07.
- */
 public class JSonParser {
 
 
