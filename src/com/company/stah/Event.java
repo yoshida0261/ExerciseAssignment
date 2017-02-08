@@ -7,4 +7,11 @@ public class Event {
     {
         this.event = event;
     }
+
+    public void Validate()
+    {
+        // 256文字以下
+
+        // 全角であるか
+    }
 }

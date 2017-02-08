@@ -9,5 +9,12 @@ public class DateYYYYMMDDhhmm {
         yyyymmddhhmm = date;
     }
 
+    public boolean Validate(){
+
+        // dateで変換がおかしいなど。
+
+        return  false;
+    }
+
 
 }
