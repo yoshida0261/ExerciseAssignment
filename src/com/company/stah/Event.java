@@ -8,6 +8,11 @@ public class Event {
         this.event = event;
     }
 
+    public String getEvent()
+    {
+        return event;
+    }
+
     public void Validate()
     {
         // 256文字以下

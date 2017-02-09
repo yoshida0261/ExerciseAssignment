@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class Main {
@@ -14,17 +13,21 @@ public class Main {
     public static void main(String[] args) {
 
 
-        /*
-        CommandParser cmd = new CommandParser();
-        cmd.Parser(args);
 
-        DateYYYYMMDDhhmm date = new DateYYYYMMDDhhmm("201702140830");
-        Event event = new Event("よろしく");
-*/
+
+        CommandParser cmd = new CommandParser();
+        cmd.parser(args);
+
+        ScheduleManager manager = new ScheduleManager(1);
+
+        manager.setSchedule("201702100101", "test");
+
+        manager.findEvent("201702100101", "201702100101");
+
+
 
         // 予定設定　か予定検索で処理を分岐
 
-        debugJackson();
 
         // 予定設定
 

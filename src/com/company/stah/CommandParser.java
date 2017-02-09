@@ -6,80 +6,95 @@ public class CommandParser {
 
     private boolean isFind = false;
     private boolean isSet = false;
+    private int max = 0;
+    private Event event = null;
+    private DateYYYYMMDDhhmm date = null;
+    private DateYYYYMMDDhhmm start = null;
+    private DateYYYYMMDDhhmm end = null;
 
-    public void Parser(String[] args) {
+    public void parser(String[] args) {
 
         Options opts = new Options();
-        opts.addOption("f", "find", true, "Find Start-End Event mode.");
-        opts.addOption("s", "set_schedule", true, "Set Schedule ");
+        opts.addOption("f", "find", false, "Find Start-End Event mode.");
+        opts.addOption("s", "set_schedule", false, "Set Schedule ");
         opts.addOption("d", "debug", false, "out put log mode");
 
-        //ss -s date event
-        //ss -f start end
+        Option maxOpt = Option.builder("max")
+                .required(false)
+                .hasArg(true)
+                .desc("Event max count")
+                .argName("max")
+                .build();
 
-        Option date   = Option.builder()
-                .hasArg()
+        Option dateOpt   = Option.builder("date")
+                .required(false)
+                .hasArg(true)
                 .desc("Scheduled date")
                 .argName("date")
                 .build();
-        Option event = Option.builder()
-                .hasArg()
+        Option eventOpt = Option.builder("event")
+                .required(false)
+                .hasArg(true)
                 .desc("Scheduled event")
                 .argName("event")
                 .build();
-        Option start = Option.builder()
-                .hasArg()
+        Option startOpt = Option.builder("start")
+                .required(false)
+                .hasArg(true)
                 .desc("start date")
                 .argName("start date")
                 .build();
 
-        Option end = Option.builder()
-                .hasArg()
+        Option endOpt = Option.builder("end")
+                .required(false)
+                .hasArg(true)
                 .desc("end date")
-                .argName("")
+                .argName("end date")
                 .build();
-        opts.addOption(date);
-        opts.addOption(event);
-        opts.addOption(start);
-        opts.addOption(end);
-
-
+        opts.addOption(maxOpt);
+        opts.addOption(dateOpt);
+        opts.addOption(eventOpt);
+        opts.addOption(startOpt);
+        opts.addOption(endOpt);
 
         DefaultParser parser = new DefaultParser();
         CommandLine cl;
-        HelpFormatter help = new HelpFormatter();
 
         boolean debugFlag = false;
 
         try {
             cl = parser.parse(opts, args);
-            if ( cl.hasOption("-f") ) isFind = true;
-            if ( cl.hasOption("-d") ) debugFlag = true;
 
-            System.out.println("Starting application...");
-            System.out.println("Set Date mode : " + isSet);
-            System.out.println("Find mode     : " + isFind);
-            System.out.println("Debug mode    : " + debugFlag);
-
-            // todo
-            // validate
-
-            // event <256
-            // event 全角
-
-            // date YYYYMMDDhhmm
-            // date 正しい日付
+            if ( cl.hasOption("s") ) isSet = true;
+            if ( cl.hasOption("f") ) isFind = true;
+            if ( cl.hasOption("d") ) debugFlag = true;
+            if ( cl.hasOption("max")) max = Integer.parseInt(cl.getOptionValue("max"));
+            if ( cl.hasOption("event")) event = new Event(cl.getOptionValue("event"));
+            if ( cl.hasOption("date")) date = new DateYYYYMMDDhhmm(cl.getOptionValue("date"));
+            if ( cl.hasOption("start")) start = new DateYYYYMMDDhhmm(cl.getOptionValue("start"));
+            if ( cl.hasOption("end")) end = new DateYYYYMMDDhhmm(cl.getOptionValue("end"));
 
 
         } catch (ParseException e) {
+            HelpFormatter help = new HelpFormatter();
             help.printHelp("My Java Application", opts);
             System.exit(1);
         }
+
+        System.out.println("Starting application...");
+        System.out.println("SetEvent mode : " + isSet);
+        System.out.println("Find     mode : " + isFind);
+        System.out.println("Debug    mode : " + debugFlag);
+        System.out.println("max     count : " + max);
+        if(event != null) System.out.println("event         : " + event.getEvent());
+        if(date != null)  System.out.println("date          : " + date.getDate());
+        if(start != null) System.out.println("start         : " + start.getDate());
+        if(end != null)   System.out.println("end           : " + end.getDate());
+
+
     }
 
 
-    public void Set(Event event, DateYYYYMMDDhhmm date)
-    {
 
-    }
+
 }

@@ -9,6 +9,11 @@ public class DateYYYYMMDDhhmm {
         yyyymmddhhmm = date;
     }
 
+    public String getDate()
+    {
+        return yyyymmddhhmm;
+    }
+
     public boolean Validate(){
 
         // dateで変換がおかしいなど。
