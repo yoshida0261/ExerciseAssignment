@@ -1,15 +1,24 @@
 package com.company.stah;
 
-import com.company.stah.dao.ScheduleDao;
-import jdk.nashorn.internal.ir.debug.JSONWriter;
-
-import java.util.ArrayList;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class JSonParser {
 
+    public String SchedulePrinter(ScheduleJson json){
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-    public JSONWriter Schedule(ArrayList<ScheduleDao> arrayList){
-        // parse
-        return null;
+        String output = null;
+        try {
+            output = mapper.writeValueAsString(json);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(output);
+
+        return output;
     }
 }

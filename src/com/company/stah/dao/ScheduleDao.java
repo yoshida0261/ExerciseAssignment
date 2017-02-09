@@ -10,4 +10,7 @@ public abstract class ScheduleDao {
 
     abstract public void createSchedule(DateYYYYMMDDhhmm date, Event event);
     abstract public Map<DateYYYYMMDDhhmm,Event> findEvent(DateYYYYMMDDhhmm start, DateYYYYMMDDhhmm end);
+
+
+
 }
