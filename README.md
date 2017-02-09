@@ -1,8 +1,9 @@
 # ExerciseAssignmen
 
 #usage
-ss -s date event
-ss -f start end
+
+- ss -s date event
+- ss -f start end
 
 ##　日時と予定を検索する
 
