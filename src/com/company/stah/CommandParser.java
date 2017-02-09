@@ -7,6 +7,36 @@ public class CommandParser {
     private boolean isFind = false;
     private boolean isSet = false;
     private int max = 0;
+    private String filePath = null;
+
+    public boolean isFind() {
+        return isFind;
+    }
+
+    public boolean isSet() {
+        return isSet;
+    }
+
+    public int getMax() {
+        return max;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public DateYYYYMMDDhhmm getDate() {
+        return date;
+    }
+
+    public DateYYYYMMDDhhmm getStart() {
+        return start;
+    }
+
+    public DateYYYYMMDDhhmm getEnd() {
+        return end;
+    }
+
     private Event event = null;
     private DateYYYYMMDDhhmm date = null;
     private DateYYYYMMDDhhmm start = null;
@@ -51,11 +81,19 @@ public class CommandParser {
                 .desc("end date")
                 .argName("end date")
                 .build();
+        Option fileOpt = Option.builder("filepath")
+                .required(false)
+                .hasArg(true)
+                .desc("output file path")
+                .argName("file path")
+                .build();
+
         opts.addOption(maxOpt);
         opts.addOption(dateOpt);
         opts.addOption(eventOpt);
         opts.addOption(startOpt);
         opts.addOption(endOpt);
+        opts.addOption(fileOpt);
 
         DefaultParser parser = new DefaultParser();
         CommandLine cl;
@@ -80,6 +118,7 @@ public class CommandParser {
             }
             if ( cl.hasOption("d") ) debugFlag = true;
             if ( cl.hasOption("max")) max = Integer.parseInt(cl.getOptionValue("max"));
+            if ( cl.hasOption("filepath")) filePath = cl.getOptionValue("filepath");
 
 
         } catch (ParseException e) {
@@ -97,9 +136,10 @@ public class CommandParser {
         if(date != null)  System.out.println("date          : " + date.getDate());
         if(start != null) System.out.println("start         : " + start.getDate());
         if(end != null)   System.out.println("end           : " + end.getDate());
-
+        System.out.println("file path     : " + filePath);
 
     }
+
 
 
 

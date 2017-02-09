@@ -12,12 +12,12 @@ public class ScheduleManager {
 
     }
 
-    public void setSchedule(String date, String event)
+    public void setSchedule(DateYYYYMMDDhhmm date, Event event)
     {
         //event数がmaxを超えたらエラー
     }
 
-    public String findEvent(String start, String end)
+    public String findEvent(DateYYYYMMDDhhmm start, DateYYYYMMDDhhmm end)
     {
         //登録されたeventを全て取得
 
