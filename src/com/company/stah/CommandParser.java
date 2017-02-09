@@ -65,14 +65,21 @@ public class CommandParser {
         try {
             cl = parser.parse(opts, args);
 
-            if ( cl.hasOption("s") ) isSet = true;
-            if ( cl.hasOption("f") ) isFind = true;
+            if( cl.hasOption("s") && cl.hasOption("f") ) return;
+
+            if ( cl.hasOption("s") ) {
+                isSet = true;
+                if ( cl.hasOption("event")) event = new Event(cl.getOptionValue("event"));
+                if ( cl.hasOption("date")) date = new DateYYYYMMDDhhmm(cl.getOptionValue("date"));
+
+            }
+            if ( cl.hasOption("f") ) {
+                isFind = true;
+                if ( cl.hasOption("start")) start = new DateYYYYMMDDhhmm(cl.getOptionValue("start"));
+                if ( cl.hasOption("end")) end = new DateYYYYMMDDhhmm(cl.getOptionValue("end"));
+            }
             if ( cl.hasOption("d") ) debugFlag = true;
             if ( cl.hasOption("max")) max = Integer.parseInt(cl.getOptionValue("max"));
-            if ( cl.hasOption("event")) event = new Event(cl.getOptionValue("event"));
-            if ( cl.hasOption("date")) date = new DateYYYYMMDDhhmm(cl.getOptionValue("date"));
-            if ( cl.hasOption("start")) start = new DateYYYYMMDDhhmm(cl.getOptionValue("start"));
-            if ( cl.hasOption("end")) end = new DateYYYYMMDDhhmm(cl.getOptionValue("end"));
 
 
         } catch (ParseException e) {

@@ -4,6 +4,10 @@ public class ScheduleManager {
 
     private int max;
 
+    public void setDebugMode(){
+        // logger をdebugレベルに設定
+    }
+
     public ScheduleManager(int max){
 
     }
