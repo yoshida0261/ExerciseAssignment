@@ -25,22 +25,22 @@ public class CommandParser {
         return event;
     }
 
-    public DateYYYYMMDDhhmm getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public DateYYYYMMDDhhmm getStart() {
+    public Date getStart() {
         return start;
     }
 
-    public DateYYYYMMDDhhmm getEnd() {
+    public Date getEnd() {
         return end;
     }
 
     private Event event = null;
-    private DateYYYYMMDDhhmm date = null;
-    private DateYYYYMMDDhhmm start = null;
-    private DateYYYYMMDDhhmm end = null;
+    private Date date = null;
+    private Date start = null;
+    private Date end = null;
 
     public void parser(String[] args) {
 
@@ -108,13 +108,13 @@ public class CommandParser {
             if ( cl.hasOption("s") ) {
                 isSet = true;
                 if ( cl.hasOption("event")) event = new Event(cl.getOptionValue("event"));
-                if ( cl.hasOption("date")) date = new DateYYYYMMDDhhmm(cl.getOptionValue("date"));
+                if ( cl.hasOption("date")) date = new Date(cl.getOptionValue("date"));
 
             }
             if ( cl.hasOption("f") ) {
                 isFind = true;
-                if ( cl.hasOption("start")) start = new DateYYYYMMDDhhmm(cl.getOptionValue("start"));
-                if ( cl.hasOption("end")) end = new DateYYYYMMDDhhmm(cl.getOptionValue("end"));
+                if ( cl.hasOption("start")) start = new Date(cl.getOptionValue("start"));
+                if ( cl.hasOption("end")) end = new Date(cl.getOptionValue("end"));
             }
             if ( cl.hasOption("d") ) debugFlag = true;
             if ( cl.hasOption("max")) max = Integer.parseInt(cl.getOptionValue("max"));

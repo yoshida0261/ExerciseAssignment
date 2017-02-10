@@ -1,6 +1,6 @@
 package com.company.stah.dao;
 
-import com.company.stah.DateYYYYMMDDhhmm;
+import com.company.stah.Date;
 import com.company.stah.Event;
 
 import java.util.HashMap;
@@ -8,23 +8,23 @@ import java.util.Map;
 
 public class ScheduleStub extends ScheduleDao {
 
-    private DateYYYYMMDDhhmm date;
+    private Date date;
     private Event event;
     @Override
-    public void createSchedule(DateYYYYMMDDhhmm date, Event event) {
+    public void createSchedule(Date date, Event event) {
 
         this.date = date;
         this.event = event;
     }
 
     @Override
-    public Map<DateYYYYMMDDhhmm,Event> findEvent(DateYYYYMMDDhhmm start, DateYYYYMMDDhhmm end) {
+    public Map<Date,Event> findEvent(Date start, Date end) {
 
         //search
-        System.out.println(start.toString());
-        System.out.println(end.toString());
+        System.out.println(start.getDate());
+        System.out.println(end.getDate());
 
-        Map<DateYYYYMMDDhhmm, Event> map = new HashMap<DateYYYYMMDDhhmm, Event>();
+        Map<Date, Event> map = new HashMap<Date, Event>();
         map.put(this.date, this.event);
 
         return map;

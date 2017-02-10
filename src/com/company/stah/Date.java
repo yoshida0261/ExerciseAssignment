@@ -2,10 +2,10 @@ package com.company.stah;
 
 import java.util.Date;
 
-public class DateYYYYMMDDhhmm {
+public class Date {
     private String yyyymmddhhmm;
 
-    public DateYYYYMMDDhhmm(String date){
+    public Date(String date){
         yyyymmddhhmm = date;
     }
 
