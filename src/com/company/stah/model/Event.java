@@ -1,4 +1,4 @@
-package com.company.stah;
+package com.company.stah.model;
 
 public class Event {
     private String event;
@@ -6,6 +6,11 @@ public class Event {
     public  Event(String event)
     {
         this.event = event;
+    }
+
+    @Override
+    public String toString(){
+        return this.event;
     }
 
     public String getEvent()

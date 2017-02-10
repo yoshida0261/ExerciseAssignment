@@ -1,5 +1,6 @@
 package com.company.stah;
 
+import com.company.stah.model.ScheduleJson;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

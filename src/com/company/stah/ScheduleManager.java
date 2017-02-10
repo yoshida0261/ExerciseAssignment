@@ -1,5 +1,8 @@
 package com.company.stah;
 
+import com.company.stah.model.Date;
+import com.company.stah.model.Event;
+
 public class ScheduleManager {
 
     private int max;

@@ -1,7 +1,7 @@
 package com.company.stah.dao;
 
-import com.company.stah.Date;
-import com.company.stah.Event;
+import com.company.stah.model.Date;
+import com.company.stah.model.Event;
 
 import java.util.HashMap;
 import java.util.Map;

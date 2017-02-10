@@ -1,4 +1,4 @@
-package com.company.stah.model;
+package com.company.stah;
 
 public class DBManager {
 
