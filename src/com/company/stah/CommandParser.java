@@ -105,7 +105,10 @@ public class CommandParser {
         try {
             cl = parser.parse(opts, args);
 
-            if( cl.hasOption("s") && cl.hasOption("f") ) return;
+            if( cl.hasOption("s") && cl.hasOption("f") ) {
+                System.out.println("-s and -f both setting error");
+                return;
+            }
 
             if ( cl.hasOption("s") ) {
                 isSet = true;
@@ -139,6 +142,7 @@ public class CommandParser {
         if(start != null) System.out.println("start         : " + start.getDate());
         if(end != null)   System.out.println("end           : " + end.getDate());
         System.out.println("file path     : " + filePath);
+        System.out.println("command arg parse end...¥n");
 
     }
 

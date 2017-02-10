@@ -15,17 +15,21 @@ public class ScheduleStub extends ScheduleDao {
 
         this.date = date;
         this.event = event;
+        System.out.println("create Schedule...");
+        System.out.println(date.getDate());
+        System.out.println(event.getEvent());
     }
 
     @Override
     public Map<Date,Event> findEvent(Date start, Date end) {
 
         //search
+        System.out.println("find Event...");
         System.out.println(start.getDate());
         System.out.println(end.getDate());
 
         Map<Date, Event> map = new HashMap<Date, Event>();
-        map.put(this.date, this.event);
+        map.put(start, new Event("test Event"));
 
         return map;
     }

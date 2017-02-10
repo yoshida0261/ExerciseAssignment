@@ -1,7 +1,11 @@
 package com.company.stah;
 
+import com.company.stah.dao.ScheduleDao;
+import com.company.stah.dao.ScheduleSQLite;
+import com.company.stah.dao.ScheduleStub;
 import com.company.stah.model.Date;
 import com.company.stah.model.Event;
+import com.company.stah.model.ScheduleJson;
 
 public class ScheduleManager {
 
@@ -18,15 +22,19 @@ public class ScheduleManager {
     public void setSchedule(Date date, Event event)
     {
         //event数がmaxを超えたらエラー
+        //ScheduleDao schedule = new ScheduleSQLite();
+        ScheduleDao schedule = new ScheduleStub();
+        schedule.createSchedule(date, event);
     }
 
     public String findEvent(Date start, Date end)
     {
-        //登録されたeventを全て取得
+        ScheduleJson json = new ScheduleJson();
 
-        //範囲内に絞込
+        ScheduleDao schedule = new ScheduleStub();
+        json.schedule = schedule.findEvent(start, end);
 
-        // jsonに整形して返す
-        return null;
+        JSonParser parser = new JSonParser();
+        return parser.SchedulePrinter(json);
     }
 }
