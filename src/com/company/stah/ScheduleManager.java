@@ -33,12 +33,8 @@ public class ScheduleManager {
      */
     public void setSchedule(Date date, Event event)
     {
-        //event数がmaxを超えたらエラー
-
-
-
-        //ScheduleDao schedule = new ScheduleSQLite();
-        ScheduleDao schedule = new ScheduleStub();
+        ScheduleDao schedule = new ScheduleSQLite();
+        //ScheduleDao schedule = new ScheduleStub();
         schedule.createSchedule(date, event);
     }
 
@@ -52,7 +48,8 @@ public class ScheduleManager {
     {
         ScheduleJson json = new ScheduleJson();
 
-        ScheduleDao schedule = new ScheduleStub();
+        //ScheduleDao schedule = new ScheduleStub();
+        ScheduleDao schedule = new ScheduleSQLite();
         json.schedule = schedule.findEvent(start, end);
 
         JSonParser parser = new JSonParser();
