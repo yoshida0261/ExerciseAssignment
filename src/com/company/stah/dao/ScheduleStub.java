@@ -25,8 +25,8 @@ public class ScheduleStub extends ScheduleDao {
 
         //search
         System.out.println("find Event...");
-        System.out.println(start.getDate());
-        System.out.println(end.getDate());
+        System.out.println("  start :" + start.getDate());
+        System.out.println("  end   :" + end.getDate());
 
         Map<Date, Event> map = new HashMap<Date, Event>();
         map.put(start, new Event("test Event"));

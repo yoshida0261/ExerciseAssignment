@@ -142,7 +142,8 @@ public class CommandParser {
         if(start != null) System.out.println("start         : " + start.getDate());
         if(end != null)   System.out.println("end           : " + end.getDate());
         System.out.println("file path     : " + filePath);
-        System.out.println("command arg parse end...¥n");
+        String line_sep = System.getProperty("line.separator");
+        System.out.println("command arg parse end..." + line_sep);
 
     }
 

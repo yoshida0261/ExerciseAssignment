@@ -15,18 +15,39 @@ public class ScheduleManager {
         // logger をdebugレベルに設定
     }
 
+    /**
+     *
+     * 予定の最大登録件数を設定
+     * @param max
+     */
     public ScheduleManager(int max){
 
+        this.max = max;
     }
 
+    /**
+     *
+     *
+     * @param date
+     * @param event
+     */
     public void setSchedule(Date date, Event event)
     {
         //event数がmaxを超えたらエラー
+
+
+
         //ScheduleDao schedule = new ScheduleSQLite();
         ScheduleDao schedule = new ScheduleStub();
         schedule.createSchedule(date, event);
     }
 
+    /**
+     *
+     * @param start
+     * @param end
+     * @return
+     */
     public String findEvent(Date start, Date end)
     {
         ScheduleJson json = new ScheduleJson();
