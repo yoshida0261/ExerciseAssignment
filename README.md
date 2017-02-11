@@ -5,8 +5,20 @@
 - ss -s date event
 - ss -f start end
 
-##　日時と予定を検索する
+#実装方針
+オブジェクト指向としてdaoなどのデザインパターンを意識し
+モジュール間の結合を疎とする。
+利用できるOSSは使用する。
+予約検索のアルゴリズムは二分検索を使用する。
 
+#実行方法
+usage参照
+
+#環境構築
+Java 1.8 + Intellij + OSS（下記 OSS参照）
+
+##仕様
+- 日時と予定を検索する
 - 日時　
   - YYYYMMDDhhmm
   - 文字列
@@ -20,13 +32,17 @@
 
 ## OSS
 
+###導入手順
+以下のサイトからjarをDLし、intellijの設定をする。
   
-- logblock
-    - todo
 - common cli
     - http://commons.apache.org/proper/commons-cli/download_cli.cgi
 - Jackson
-    - todo
-- jmh
-    - todo
-
+    - http://wiki.fasterxml.com/JacksonDownload
+        - jackson-annotations-2.8.0
+        - jackson-core-2.8.1
+        - jackson-databind-2.8.5
+- JUnit
+    - http://search.maven.org/#search|gav|1|g:"junit" AND a:"junit"
+- SQLite
+    -
